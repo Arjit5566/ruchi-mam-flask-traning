@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Book - Library Management System{% endblock %}
+
+{% block content %}
+<div class="glass-card">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+        <div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: #fff;">
+                <i class="fa-solid fa-plus-circle" style="color: var(--primary);"></i> Submit Book Details
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Fill in the form to register a new book in the system</p>
+        </div>
+        <a href="{{ url_for('dashboard') }}" class="nav-btn nav-btn-outline" style="font-size: 0.85rem;">
+            <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+    </div>
+
+    <form action="{{ url_for('submit_book') }}" method="POST">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+                <label class="form-label" for="book_no"><i class="fa-solid fa-hashtag"></i> Book No.</label>
+                <input type="text" id="book_no" name="book_no" class="form-control" placeholder="e.g. BK-1001" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="issue_date"><i class="fa-solid fa-calendar-days"></i> Issue Date</label>
+                <input type="date" id="issue_date" name="issue_date" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="book_name"><i class="fa-solid fa-book"></i> Book Name</label>
+            <input type="text" id="book_name" name="book_name" class="form-control" placeholder="Enter complete book title" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="book_author"><i class="fa-solid fa-user-pen"></i> Book Author</label>
+            <input type="text" id="book_author" name="book_author" class="form-control" placeholder="Enter author's name" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="book_type"><i class="fa-solid fa-layer-group"></i> Book Type / Category</label>
+            <select id="book_type" name="book_type" class="form-control" required>
+                <option value="" disabled selected>Select book type</option>
+                <option value="Computer Science &amp; IT">Computer Science &amp; IT</option>
+                <option value="Engineering &amp; Tech">Engineering &amp; Tech</option>
+                <option value="Fiction &amp; Novel">Fiction &amp; Novel</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Science &amp; Mathematics">Science &amp; Mathematics</option>
+                <option value="History &amp; Culture">History &amp; Culture</option>
+                <option value="Reference &amp; Journals">Reference &amp; Journals</option>
+                <option value="General Literature">General Literature</option>
+            </select>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <button type="submit" class="submit-btn" style="flex: 2;">
+                <i class="fa-solid fa-floppy-disk"></i> Save Book Entry
+            </button>
+            <a href="{{ url_for('see_books') }}" class="nav-btn nav-btn-outline" style="flex: 1; justify-content: center; padding: 0.95rem;">
+                <i class="fa-solid fa-eye"></i> See Details
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Set default date to today
+    document.getElementById('issue_date').valueAsDate = new Date();
+</script>
+{% endblock %}

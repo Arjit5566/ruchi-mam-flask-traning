@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "C:/Users/Arjit/OneDrive/Desktop/flask traning/myflask/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": [
+    "C:/Users/Arjit/OneDrive/Desktop/flask traning"
+  ]
+}
